@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phones — Device Inventory</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content">
+    <div class="breadcrumb">Inventory &nbsp;/&nbsp; <b>Phones</b></div>
+    <div class="greet-row">
+      <div><h1>Phones</h1><div class="sub">Manage phone inventory</div></div>
+      <div class="greet-actions"><button class="btn-green" id="addBtn">+ Add phone</button></div>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search brand, model, serial, assignee…">
+      <select id="filterStatus">
+        <option value="">All statuses</option>
+        <option>In Stock</option><option>Assigned</option><option>Repair</option>
+        <option>Defective</option><option>Retired</option>
+      </select>
+    </div>
+
+    <div class="tablewrap">
+      <table id="table">
+        <thead><tr><th>Brand / Model</th><th>Serial</th><th>Status</th><th>Assigned to</th><th>Purchased</th><th></th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2 id="modalTitle">Add phone</h2>
+    <div class="field"><label>Brand</label><input type="text" id="f_brand" placeholder="e.g. Apple, Samsung"></div>
+    <div class="field"><label>Model</label><input type="text" id="f_model" placeholder="e.g. iPhone 14"></div>
+    <div class="field"><label>Serial number</label><input type="text" id="f_serial" placeholder="e.g. SN-4821XK"></div>
+    <div class="field"><label>Status</label>
+      <select id="f_status">
+        <option>In Stock</option><option>Assigned</option><option>Repair</option>
+        <option>Defective</option><option>Retired</option>
+      </select>
+    </div>
+    <div class="field"><label>Assigned to</label><input type="text" id="f_assignee" placeholder="Employee name (optional)"></div>
+    <div class="field"><label>Purchase date</label><input type="text" id="f_date" placeholder="YYYY-MM-DD (optional)"></div>
+    <div class="field"><label>Notes</label><input type="text" id="f_notes" placeholder="Optional"></div>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="cancelBtn">Cancel</button>
+      <button class="btn" id="saveBtn">Save</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+<script>initInventoryPage("Phone");</script>
+</body>
+</html>
